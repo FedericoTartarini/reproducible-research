@@ -6,9 +6,9 @@ This repository is a template one how you should organize your code, data, and m
 
 The directory is divided in sub-folders. Each will contain different files:
 
-* Manuscript contains all the Latex files needed to generate your manuscript and your presentation.
+* Manuscript contains all the Latex files needed to generate your manuscript and your presentation. The only folder that you need to edit is `manuscript/src`. Ignore the other files
 
-* Data will contained some .csv with all the data that you want to share publicly. It SHOULD NOT contain identifiable data. The objective of this folder is not to replace the database, but instead to share some of the database data with other researchers 
+* Data will contained some .csv with all the data that you want to share publicly. It **SHOULD NOT** contain identifiable data. The objective of this folder is not to replace the database, but instead to share some of the database data with other researchers 
 
 ## More Information
 
