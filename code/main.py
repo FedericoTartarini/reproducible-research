@@ -28,7 +28,7 @@ def influx_to_df(query='SELECT * FROM "coziePublic"."autogen"."fitbit" where use
     except IndexError:
         return pd.DataFrame()
 
-
+# variables
 experiment_id = 'dorn'
 timeZone = 'Asia/Singapore'
 start_date = pd.Timestamp(2020, 4, 10).value
@@ -42,12 +42,14 @@ try:
                             f'FROM "coziePublic"."autogen"."fitbit" '
                             f'where time > {start_date} '
                             f'and "experimentid" = \'{experiment_id}\' '
-                            f'and "userid" != \'{"dorn16"}\'')
+                            f'and "userid" != \'{"dorn16"}\''
+                            f'and "userid" != \'{"dorn17"}\'')
     df_cozie.to_csv(cozie_file, index=False)
 except:
     df_cozie.read_csv(cozie_file, index=False)
 
 df_cozie.head()
+df_cozie.index.max()
 
 df_group_id = df_cozie.groupby(['userid'])['thermal'].count().reset_index()
 
