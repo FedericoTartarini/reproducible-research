@@ -67,7 +67,14 @@ plt.show()
 
 fig = plt.figure(figsize=(5, 4))
 sns.barplot(y="userid", x="thermal", data=df_group_id)
+plt.tight_layout()
 plt.savefig(os.path.join(fig_dir, 'bar-plot.pgf'))
+# plt.savefig(os.path.join(fig_dir, 'bar-plot.png'), dpi=300)
+
+fig = plt.figure(figsize=(3, 3))
+sns.barplot(y="userid", x="thermal", data=df_group_id)
+plt.tight_layout()
+plt.savefig(os.path.join(fig_dir, 'beamer-bar-plot.pgf'))
 # plt.savefig(os.path.join(fig_dir, 'bar-plot.png'), dpi=300)
 
 df_cozie.groupby(['userid'])['responseSpeed'].describe()
