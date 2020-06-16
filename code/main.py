@@ -43,6 +43,7 @@ try:
                             f'where time > {start_date} '
                             f'and "experimentid" = \'{experiment_id}\' '
                             f'and "userid" != \'{"dorn16"}\''
+                            f'and "userid" != \'{"dorn18"}\''
                             f'and "userid" != \'{"dorn17"}\'')
     df_cozie.to_csv(cozie_file, index=False)
 except:
@@ -65,10 +66,15 @@ plt.show()
 #     'pgf.rcfonts': False,
 # })
 
-fig = plt.figure(figsize=(5, 4))
+fig = plt.figure(figsize=(2, 2))
 sns.barplot(y="userid", x="thermal", data=df_group_id)
 plt.tight_layout()
 plt.savefig(os.path.join(fig_dir, 'bar-plot.pgf'))
+
+fig = plt.figure(figsize=(4, 3))
+sns.barplot(y="userid", x="thermal", data=df_group_id)
+plt.tight_layout()
+plt.savefig(os.path.join(fig_dir, 'beamer-bar-plot.pgf'))
 # plt.savefig(os.path.join(fig_dir, 'bar-plot.png'), dpi=300)
 
 fig = plt.figure(figsize=(3, 3))
@@ -80,7 +86,7 @@ plt.savefig(os.path.join(fig_dir, 'beamer-bar-plot.pgf'))
 df_cozie.groupby(['userid'])['responseSpeed'].describe()
 
 # df_describe = df_cozie.groupby(['userid'])['responseSpeed'].describe()
-df_describe = df_cozie.groupby(['userid'])['responseSpeed'].describe().round(2).reset_index()
-df_describe['mean'] = [str(x) if x > 400 else str(x) + '*' for x in df_describe['mean']]
+df_describe = df_cozie.groupby(['userid'])['responseSpeed'].describe().round(1).reset_index()
+# df_describe['mean'] = [str(x) if x > 400 else str(x) + '*' for x in df_describe['mean']]
 with open(os.path.join(tbl_dir, 'tbl_resp_speed.tex'), 'w') as tf:
     tf.write(df_describe.to_latex(index=False))
