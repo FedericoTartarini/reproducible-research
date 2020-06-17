@@ -1,12 +1,41 @@
 # Reproducible research
 
-This repository is a template one how you should organize your code, data, and manuscript.
+This repository gives you an example on how you can structure your research project, from the data analysis all the way to the final version of the manuscript or a presentation.
+
+Alternatively you could also look at [this repository](https://github.com/CenterForTheBuiltEnvironment/rmd-example) titled: "A reproducible journal article template in RMarkdown" put together by our colleagues at CBE.
+
+-   [Getting Started](#getting-started)
+    -   [Manuscript and Presentation](#manuscript-and-presentation)
+-   [Prerequisites](#prerequisites)
 
 ## Getting Started
 
-The directory is divided in sub-folders. Each will contain different files:
+The directory is divided in sub-folders. Each of which contains the relative source code.
 
-* Manuscript contains all the Latex files needed to generate your manuscript and your presentation. The only folder that you need to edit is `manuscript/src`. Ignore the other files
+### Manuscript and Presentation
+
+The manuscript contains all the Latex files needed to generate your manuscript and your presentation. The main source files are located in the `manuscript/src`.
+
+* [Presentation.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/presentation.tex) contains the code to generate your manuscript.
+* [main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex) is your manuscript source file.
+
+#### Manuscript 
+
+[main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex) is the source file that your Latex compiler will use to generate the paper. However, in order to keep the code cleaner, the main sections of the paper are all located in the [sections](https://github.com/FedericoTartarini/reproducible-research/tree/master/manuscript/src/sections). In this way you will experience less merging issues when two or more people are working on the same manuscript.
+
+Just edit the text in the relative Latex file (e.g., introduction, methodology, etc.) and you should be ready to go. No need to change any other file.
+
+##### Adding a new section
+
+Just copy a section file (e.g., [introduction.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/sections/introduction.tex)) paste it in the same directory. Rename the pasted file (e.g. discussion.tex) and add this file to [main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex).
+
+##### Figures, Tables or Math equations
+
+See the boilerplate code in [results.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/sections/results.tex)
+
+
+
+### Data
 
 * Data will contained some .csv with all the data that you want to share publicly. It **SHOULD NOT** contain identifiable data. The objective of this folder is not to replace the database, but instead to share some of the database data with other researchers 
 
