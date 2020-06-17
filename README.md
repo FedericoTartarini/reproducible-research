@@ -2,33 +2,51 @@
 
 This repository gives you an example on how you can structure your research project, from the data analysis all the way to the final version of the manuscript or a presentation.
 
-Alternatively you could also look at [this repository](https://github.com/CenterForTheBuiltEnvironment/rmd-example) titled: "A reproducible journal article template in RMarkdown" put together by our colleagues at CBE.
-
 -   [Getting Started](#getting-started)
-    -   [Data](#data)
+    -   [Data](#source-data)
+    -   [Data Analysis](#data-analysis)
     -   [Manuscript and Presentation](#manuscript-and-presentation)
-        - [Manuscript](#manuscript)
-            - [Adding new section](#adding-a-new-section)
-            - [Figures, Tables, Equations](#figures-tables-or-math-equations)
+        -   [Manuscript](#manuscript)
+            -   [Adding new section](#adding-a-new-section)
+            -   [Figures, Tables, Equations](#figures-tables-or-math-equations)
+            -   [Changing Template](#changing-template)
+        -   [Additional resources](#additional-resources)
 -   [Prerequisites](#prerequisites)
+    -   [Data Analysis Softwares](#data-analysis-software)
+    -   [Latex](#latex)
+-   [Useful Resources](#useful-resources)
+    -   [Databases](#open-source-databases)
+    -   [IDE](#ide)
+    -   [Git](#git-and-git-web-hosting)
+-   [Author](#authors)
+-   [Licence](#license)
 
 ## Getting Started
 
-The directory is divided in sub-folders. Each of which contains the relative source code.
+The directory is divided in sub-folders. Each of which contains the relative source code. Just clone this repository on your computer or Fork it on GitHub
 
-### Data
+### Source Data
 
-Data should only contain the .csv files that you want to share publicly. 
+The objective of this folder is not to replace the database, but instead to share only some of the database data with other researchers. Data should only contain the .csv files that you want to share publicly. 
 
+>It **SHOULD NOT** containc identifiable data. 
 
->It **SHOULD NOT** contain identifiable data. The objective of this folder is not to replace the database, but instead to share some of the database data with other researchers
+### Data Analysis
+
+Please save your source code in the `code` folder. Currently you can find an example of a Python, R and Jupiter notebook in this folder.
+
+> Figures and Tables to be used in the manuscript should be saved in the  respective folder `manuscript/src/figures` or `manuscript/src/tables`
+
+If your code needs to connect to a database or a server please make sure the `username` and `password` are not saved in plain text in your code. I keep my password saved in a file called `secret.py` and added this file to [.gitignore](https://github.com/FedericoTartarini/reproducible-research/blob/master/.gitignore) so this file is not synced to the GitHub repos. And then import this file at the beginning of my `main.py` file.
+
+> Make sure you save the data you imported from the database in the [Data](#source-data) folder so other researchers can import the raw data if they want to reproduce your results.
 
 ### Manuscript and Presentation
 
 The manuscript contains all the Latex files needed to generate your manuscript and your presentation. The main source files are located in the `manuscript/src`.
 
-* [Presentation.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/presentation.tex) contains the code to generate your manuscript.
-* [main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex) is your manuscript source file.
+* [main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex) is your manuscript source file. The final PDF can be found [here](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/presentation_out/presentation.pdf).
+* [Presentation.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/presentation.tex) contains the code to generate your presentation. The final PDF can be found [here](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/out/main.pdf).
 
 #### Manuscript 
 
@@ -44,23 +62,59 @@ Just copy a section file (e.g., [introduction.tex](https://github.com/FedericoTa
 
 See the boilerplate code in [results.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/sections/results.tex).
 
+##### Changing template
+
+For your convenience I have already included the Elsevier Latex template at the beginning of the [main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex). Feel free to change that.
+
+If you choose to use the Elsevier template you can change the bibliography style in the [mypreamble.sty](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/mypreamble.sty) file.
+
+#### Additional Resources
+
 Alternatively you can find great resources on the [Overleaf Tutorial website](https://www.overleaf.com/learn/latex/Tutorials) or on [Latex wikibooks](https://en.wikibooks.org/wiki/LaTeX).
-
-
-
-## More Information
-
-Each folder contains a README file with detailed informations.
 
 ### Prerequisites
 
-Python or R for the data analysis.
+#### Data Analysis Software
 
-Latex compiler if you want to compile your file locally.
+Python or R for the data analysis, but you can also use other programming languages or tools such as Energy Plus. How to get you started with this tools is outside the scope of this repository, but you can find a million videos on YouTube or tutorials on the Internet.
 
-### Installing
+> I would highly recommend you using an IDE to write code, see more below.
 
-Just clone this repository on your computer or Fork it on GitHub
+#### Latex
+
+Latex IDE and compiler installed locally on your machine. I recommend using Pycharm a plugin called [TeXiFy IDEA](https://plugins.jetbrains.com/plugin/9473-texify-idea) as IDE and [miktex](https://miktex.org) as Latex compiler  
+
+Alternatively you can push your code to Overleaf using git. I would discourage you from doing this! Overleaf should only be used for the review
+
+## Useful Resources
+
+### Open Source Databases
+
+If you are not sure about which database to choose and you are a researcher, in 80-90% of the cases you should be fine with an SQL database, alternatively you may want to use a Time Series database.
+
+#### SQL
+ 
+* [PostgreSQL](https://www.postgresql.org)
+* [mySQL](https://dev.mysql.com/doc/mysql-getting-started/en/)
+
+#### No SQL
+
+* [Mongo DB](https://www.mongodb.com)
+
+### IDE
+
+Well as you all know my preferred choice are [JET Brains IDEs](https://www.jetbrains.com/products.html) and for Python and R I would reccommend using [PyCharm](https://www.jetbrains.com/pycharm/). Alternatives are:
+
+* [visual Studio (VS) code](https://code.visualstudio.com)
+* [RStudio](https://rstudio.com)
+
+> Always think about the future, if you think you may start doing a bit of Web development, App development (Android, Apple) or Software. The best options are PyCharm of VS Code.
+
+I personally think you should not use Jupiter Notebook, but feel free to use it if you like it. 
+
+### Git and Git Web Hosting
+
+You should install [git](https://git-scm.com) on your computer. And have [GitHub](https://github.com) or [GitLab](https://about.gitlab.com) account
 
 ## Authors
 
