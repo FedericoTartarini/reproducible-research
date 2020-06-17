@@ -2,6 +2,17 @@
 
 This repository gives you an example on how you can structure your research project, from the data analysis all the way to the final version of the manuscript or a presentation.
 
+The overarching aim is:
+* to make our research more reproducible so other researchers can re-use our code, data;
+* to speed up review process (e.g., avoiding that we use different tools which are not 100% compatible, Google Form, Word, etc)
+* to minimise errors (e.g., copying and pasting values in Word tables and PowerPoint)
+
+For this purpose I have tried to leverage the best tools that there are currently out there (at least in my opinion) and I have put together this repository which could be used as template/starting point to ensure that we follow a more structured approach in research. It leverages the power of Python, R and Latex, to streamline the data analysis and publication process.  
+
+This project is still in Beta version, hence it is far from being complete and the file structure may soon change. Please feel free to contribute.
+
+## Table of content 
+
 -   [Getting Started](#getting-started)
     -   [Data](#source-data)
     -   [Data Analysis](#data-analysis)
