@@ -20,11 +20,8 @@ The directory is divided in sub-folders. Each of which contains the relative sou
 
 Data should only contain the .csv files that you want to share publicly. 
 
-:::important
 
-It **SHOULD NOT** contain identifiable data. The objective of this folder is not to replace the database, but instead to share some of the database data with other researchers
-
-::: 
+>It **SHOULD NOT** contain identifiable data. The objective of this folder is not to replace the database, but instead to share some of the database data with other researchers
 
 ### Manuscript and Presentation
 
