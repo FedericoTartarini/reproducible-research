@@ -48,9 +48,11 @@ Please save your source code in the `code` folder. Currently you can find an exa
 
 > Figures and Tables to be used in the manuscript should be saved in the  respective folder `manuscript/src/figures` or `manuscript/src/tables`
 
+Once you have finalized your research, your data should then be saved in [Dryad](https://datadryad.org/stash/): Dryad is an open-source, research data curation and publication platform. Datasets published in Dryad receive a citation and can be versioned at any time. You can [upload your data on Dryad](https://datadryad.org/stash/submission_process#upload-methods) by copy and pasting in their system the GitHub URL.
+
 If your code needs to connect to a database or a server please make sure the `username` and `password` are not saved in plain text in your code. I keep my password saved in a file called `secret.py` and added this file to [.gitignore](https://github.com/FedericoTartarini/reproducible-research/blob/master/.gitignore) so this file is not synced to the GitHub repos. And then import this file at the beginning of my `main.py` file.
 
-> Make sure you save the data you imported from the database in the [Data](#source-data) folder so other researchers can import the raw data if they want to reproduce your results.
+> Make sure you save the data you imported from the database in the [Data](#source-data) folder so other researchers can import the raw data if they want to reproduce your results. Alteratively write a script which pulls the data from Dryad.
 
 ### Manuscript and Presentation
 
@@ -93,9 +95,9 @@ Python or R for the data analysis, but you can also use other programming langua
 
 #### Latex
 
-Latex IDE and compiler installed locally on your machine. I recommend using Pycharm a plugin called [TeXiFy IDEA](https://plugins.jetbrains.com/plugin/9473-texify-idea) as IDE and [miktex](https://miktex.org) as Latex compiler  
+Latex IDE and compiler installed locally on your machine. I recommend using a PyCharm plugin called [TeXiFy IDEA](https://plugins.jetbrains.com/plugin/9473-texify-idea) as IDE and [miktex](https://miktex.org) as Latex compiler  
 
-Alternatively you can push your code to Overleaf using git. I would discourage you from doing this! Overleaf should only be used for the review
+Alternatively you can push your code to Overleaf using git and only use Overleaf. I would discourage you from doing this! Overleaf should only be used for the review.
 
 ## Useful Resources
 
@@ -114,7 +116,7 @@ If you are not sure about which database to choose and you are a researcher, in 
 
 ### IDE
 
-Well as you all know my preferred choice are [JET Brains IDEs](https://www.jetbrains.com/products.html) and for Python and R I would reccommend using [PyCharm](https://www.jetbrains.com/pycharm/). Alternatives are:
+You may want to take advantage of the power of IDEs. Well as you all know my preferred choice are [JET Brains IDEs](https://www.jetbrains.com/products.html) and for Python and R I would recommend using [PyCharm](https://www.jetbrains.com/pycharm/). Alternatives are:
 
 * [visual Studio (VS) code](https://code.visualstudio.com)
 * [RStudio](https://rstudio.com)
