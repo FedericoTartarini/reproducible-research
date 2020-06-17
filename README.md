@@ -5,12 +5,26 @@ This repository gives you an example on how you can structure your research proj
 Alternatively you could also look at [this repository](https://github.com/CenterForTheBuiltEnvironment/rmd-example) titled: "A reproducible journal article template in RMarkdown" put together by our colleagues at CBE.
 
 -   [Getting Started](#getting-started)
+    -   [Data](#data)
     -   [Manuscript and Presentation](#manuscript-and-presentation)
+        - [Manuscript](#manuscript)
+            - [Adding new section](#adding-a-new-section)
+            - [Figures, Tables, Equations](#figures-tables-or-math-equations)
 -   [Prerequisites](#prerequisites)
 
 ## Getting Started
 
 The directory is divided in sub-folders. Each of which contains the relative source code.
+
+### Data
+
+Data should only contain the .csv files that you want to share publicly. 
+
+:::important
+
+It **SHOULD NOT** contain identifiable data. The objective of this folder is not to replace the database, but instead to share some of the database data with other researchers
+
+::: 
 
 ### Manuscript and Presentation
 
@@ -31,13 +45,11 @@ Just copy a section file (e.g., [introduction.tex](https://github.com/FedericoTa
 
 ##### Figures, Tables or Math equations
 
-See the boilerplate code in [results.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/sections/results.tex)
+See the boilerplate code in [results.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/sections/results.tex).
+
+Alternatively you can find great resources on the [Overleaf Tutorial website](https://www.overleaf.com/learn/latex/Tutorials) or on [Latex wikibooks](https://en.wikibooks.org/wiki/LaTeX).
 
 
-
-### Data
-
-* Data will contained some .csv with all the data that you want to share publicly. It **SHOULD NOT** contain identifiable data. The objective of this folder is not to replace the database, but instead to share some of the database data with other researchers 
 
 ## More Information
 
