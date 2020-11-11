@@ -24,7 +24,7 @@ def influx_to_df(query='SELECT * FROM "coziePublic"."autogen"."fitbit" where use
 
         df.index = pd.to_datetime(df.time)
         df.index = df.index.tz_convert(timeZone)
-        return df.drop(columns=['time'])
+        return df.drop(coKlumns=['time'])
     except IndexError:
         return pd.DataFrame()
 
@@ -47,7 +47,7 @@ try:
                             f'and "userid" != \'{"dorn17"}\'')
     df_cozie.to_csv(cozie_file, index=False)
 except:
-    df_cozie.read_csv(cozie_file, index=False)
+    df_cozie = pd.read_csv(cozie_file)
 
 df_cozie.head()
 df_cozie.index.max()
@@ -71,11 +71,11 @@ sns.barplot(y="userid", x="thermal", data=df_group_id)
 plt.tight_layout()
 plt.savefig(os.path.join(fig_dir, 'bar-plot.pgf'))
 
-fig = plt.figure(figsize=(4, 3))
+fig = plt.figure(figsize=(3, 3))
 sns.barplot(y="userid", x="thermal", data=df_group_id)
 plt.tight_layout()
-plt.savefig(os.path.join(fig_dir, 'beamer-bar-plot.pgf'))
-# plt.savefig(os.path.join(fig_dir, 'bar-plot.png'), dpi=300)
+# plt.savefig(os.path.join(fig_dir, 'beamer-bar-plot.pgf'))
+plt.savefig(os.path.join(fig_dir, 'bar-plot.png'), dpi=300)
 
 fig = plt.figure(figsize=(3, 3))
 sns.barplot(y="userid", x="thermal", data=df_group_id)
@@ -88,5 +88,6 @@ df_cozie.groupby(['userid'])['responseSpeed'].describe()
 # df_describe = df_cozie.groupby(['userid'])['responseSpeed'].describe()
 df_describe = df_cozie.groupby(['userid'])['responseSpeed'].describe().round(1).reset_index()
 # df_describe['mean'] = [str(x) if x > 400 else str(x) + '*' for x in df_describe['mean']]
+df_describe = df_describe[df_describe.columns[:4]]
 with open(os.path.join(tbl_dir, 'tbl_resp_speed.tex'), 'w') as tf:
     tf.write(df_describe.to_latex(index=False))
