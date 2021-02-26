@@ -2,7 +2,7 @@
 
 This repository gives you an example on how you can structure your research project, from the data analysis all the way to the final version of the manuscript or a presentation.
 
-Find out more on how to get started [here](https://youtu.be/iueBeWkLq60)
+Find out more on how to get started [here](https://youtu.be/iueBeWkLq60).
 
 The overarching aim is:
 * to make our research more reproducible so other researchers can re-use our code, data;
