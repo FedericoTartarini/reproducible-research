@@ -1,4 +1,50 @@
 %! Author = sbbfti
 %! Date = 10/06/2020
 
-\section{Methodology}
+\section{Methodology}\label{sec:methodology}
+Text with citations~\cite{Tartarini2020a} and~\cite{Tartarini2020}.
+
+\subsection{Subsection title}\label{subsec:2}
+Don't forget to give each section
+and subsection a unique label (see Sect.~\ref{sec:methodology}).
+
+\paragraph{Paragraph headings} Use paragraph headings as needed.
+
+\begin{equation}
+a^2+b^2=c^2\label{eq:equation}
+\end{equation}
+
+% For one-column wide figures use
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/moon}
+  % figure caption is below the figure
+  \caption{Please write your figure caption here}
+  \label{fig:1}       % Give a unique label
+\end{figure}
+
+% For two-column wide figures use
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/moon}
+  % figure caption is below the figure
+  \caption{Please write your figure caption here}
+  \label{fig:2}       % Give a unique label
+\end{figure*}
+
+% For tables use
+\begin{table}
+  % table caption is above the table
+  \caption{Please write your table caption here}
+  \centering
+  \label{tab:1}       % Give a unique label
+  % For LaTeX tables use
+  \begin{tabular}{lll}
+  \hline\noalign{\smallskip}
+  first & second & third  \\
+  \noalign{\smallskip}\hline\noalign{\smallskip}
+  number & number & number \\
+  number & number & number \\
+  \noalign{\smallskip}\hline
+  \end{tabular}
+\end{table}

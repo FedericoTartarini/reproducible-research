@@ -1,28 +1,65 @@
 %! Author = sbbfti
 %! Date = 10/06/2020
 
-\documentclass[review, 3p]{elsarticle}
-%\documentclass[final]{elsarticle}
-%\documentclass[final,5p,times,twocolumn]{elsarticle}
+%%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a general template file for the LaTeX package SVJour3
+% for Springer journals.          Springer Heidelberg 2010/09/16
+%
+% Copy it to a new file with a new name and use it as the basis
+% for your article. Delete % signs as needed.
+%
+% This template includes a few options for different layouts and
+% content for various journals. Please consult a previous issue of
+% your journal as needed.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%
+%\RequirePackage{fix-cm}
+%
+%\documentclass{svjour3}                     % onecolumn (standard format)
+%\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
+%\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\usepackage{graphicx}
+%
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+%\usepackage{latexsym}
+% etc.
+%
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+%
+% Insert the name of "your journal" with
+% todo specify journal name
+\journalname{Journal}
 
+% custom packages
 \usepackage{mypreamble}
-
 \input{myacronyms.tex}
 
 \begin{document}
 
     \input{sections/titleAbstract}
 
-    \linenumbers
-
     \input{sections/introduction}
 
     \input{sections/methodology}
 
-    \input{sections/results}
+    \input{sections/acknowledgment}
 
-    \input{sections/elsevierGuide}
-
-\bibliography{mybibfile}
+    % BibTeX users please use one of
+    %\bibliographystyle{spbasic}      % basic style, author-year citations
+    \bibliographystyle{spmpsci}      % mathematics and physical sciences
+    %\bibliographystyle{spphys}       % APS-like style for physics
+    \bibliography{mybibfile}   % name your BibTeX data base
 
 \end{document}
+
+
