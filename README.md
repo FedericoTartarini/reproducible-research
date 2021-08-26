@@ -42,6 +42,10 @@ Import them from the `figures` folder using the `\input{}` command.
 
 [Equations - video tutorial](https://youtu.be/V4htbZeDUMU)
 
+### Cite a document
+
+[How to cite a document - video tutorial](https://youtu.be/cetKX6gWAIo)
+
 ### Code Listing
 
 [Code listing - video tutorial](https://youtu.be/ByduYnAu2jM)
@@ -50,11 +54,12 @@ Import them from the `figures` folder using the `\input{}` command.
 
 For your convenience I have already included the Elsevier Latex template at the beginning of the [main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex). Feel free to change that.
 
-## Additional Resources
+# Style guide and useful notes
 
-* [LaTeX - video tutorials](https://youtube.com/playlist?list=PLY91jl6VVD7wnyOlAgPRe-i9ov4_ZqHV8)
-* [Overleaf Tutorial website](https://www.overleaf.com/learn/latex/Tutorials) 
-* [Latex wikibooks](https://en.wikibooks.org/wiki/LaTeX).
+* I have added the nomenclature. Entries are defined in the `acronyms.tex` file and can be referenced in the text using the \ac{} command. [More info here](https://youtu.be/zPrWS5cnDgc)
+* Write each sentence in a new line. To go in a new line (equivalent to using enter in Word) just leave an empty row between two sentences.
+* ~ are non-breaking spaces.
+* to leave a comment, go in a new line then type `% todo ....` (replace the dots with your comment)
 
 # Prerequisites
 
@@ -78,3 +83,9 @@ You may want to take advantage of the power of IDEs. Well as you all know my pre
 
 * [visual Studio (VS) code](https://code.visualstudio.com)
 * [RStudio](https://rstudio.com)
+
+# Additional Resources
+
+* [LaTeX - video tutorials](https://youtube.com/playlist?list=PLY91jl6VVD7wnyOlAgPRe-i9ov4_ZqHV8)
+* [Overleaf Tutorial website](https://www.overleaf.com/learn/latex/Tutorials) 
+* [Latex wikibooks](https://en.wikibooks.org/wiki/LaTeX).
