@@ -13,14 +13,60 @@
 \usepackage{import}
 \modulolinenumbers[5]
 
-\journal{Journal of \LaTeX\ Templates}
+%\journal{Journal of \LaTeX\ Templates}
 
-%\User defined packages
+% package to open file containing variables
+\usepackage{datatool, filecontents}
+\DTLsetseparator{,}% Set the separator between the columns.
+% import data
+\DTLloaddb[noheader, keys={thekey,thevalue}]{mydata}{./mydata.dat}
+% Loads mydata.dat with column headers 'thekey' and 'thevalue'
+\newcommand{\var}[1]{\DTLfetch{mydata}{thekey}{#1}{thevalue}}
+
+% add code
+\usepackage{listings}
+\renewcommand\lstlistingname{Source Code}
+\renewcommand\lstlistlistingname{Source Code}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeorange}{rgb}{1,0.49,0}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.96}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegray},
+    keywordstyle=\color{codeorange},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    xleftmargin=10pt,
+}
+
+\emergencystretch 5em%
+
+\lstset{style=mystyle, basicstyle=\fontsize{6}{6}\selectfont\ttfamily}
+
+% for tables spanning across multiple pages
+\usepackage{longtable}
+
+% for math equations
+\usepackage{amsmath}
+
 % highlight
 \usepackage{color,soul}
 \DeclareRobustCommand{\hlc}[1]{{\sethlcolor{lightgray}\hl{#1}}}
 % todonotes
-\usepackage{todonotes}
+%\usepackage{todonotes}
 % degree symbol
 \usepackage{gensymb}
 % tables
@@ -35,6 +81,8 @@
 \usepackage[nonumberlist,nogroupskip]{glossaries}
 
 \setglossarystyle{super}
+
+\usepackage[printonlyused]{acronym}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %% Elsevier bibliography styles
@@ -67,3 +115,6 @@
 %% `Elsevier LaTeX' style
 \bibliographystyle{elsarticle-num}
 %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\mycite[1]{%
+    \citeauthor{#1}~(\citeyear{#1})}

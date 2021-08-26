@@ -1,17 +1,93 @@
-%! Author = sbbfti
+%! Author = federico
 %! Date = 10/06/2020
 
-\newacronym{ti}{$T_{i}$}{indoor air temperature, $^{\circ}$C}
-\newacronym{tout}{$T_{out}$}{outdoor air temperature, $^{\circ}$C}
-\newacronym{top}{$T_{o}$}{operative air temperature}
-\newacronym{ts}{$T_{s}$}{supply air temperature, $^{\circ}$C}
-\newacronym{v}{$\dot{V}$}{measured volumetric flow rate, L/s}
-\newacronym{vsp}{$\dot{V}_{sp}$}{volumetric flow rate set-point, L/s}
-\newacronym{tsph}{$T_{sp,h}$}{heating zone temperature set-point, $^{\circ}$C}
-\newacronym{tspc}{$T_{sp,c}$}{cooling zone temperature set-point}
-\newacronym{ghi}{$G_{hi}$}{global horizontal irradiance, W/m$^2$}
-\newacronym{BMS}{BMS}{Building Management System}
-\newacronym{pmv}{PMV}{redioiwieeiwdno}
-\newacronym{HVAC}{HVAC}{Heating, Ventilation, and Air Conditioning}
-\newacronym{VAV}{VAV}{Variable Air Volume}
-\newacronym{AHU}{AHU}{Air Handling Unit}
+%\section*{Nomenclature}
+\renewcommand{\baselinestretch}{0.75}\normalsize
+\renewcommand{\aclabelfont}[1]{\textsc{\acsfont{#1}}}
+\begin{acronym}[longest]
+
+    \acro{t-db}[$t_{db}$]{dry-bulb air temperature\acroextra{, $^{\circ}$C}}
+    \acro{t-wb}[$t_{wb}$]{wet-bulb air temperature\acroextra{, $^{\circ}$C}}
+    \acro{ti}[$t_{i}$]{indoor air temperature\acroextra{, $^{\circ}$C}}
+    \acro{tout}[$t_{out}$]{outdoor air temperature\acroextra{, $^{\circ}$C}}
+    \acro{t-op}[$t_{o}$]{operative air temperature\acroextra{, $^{\circ}$C}}
+    \acro{t-cl}[$t_{cl}$]{clothing temperature\acroextra{, $^{\circ}$C}}
+    \acro{tg}[$t_{g}$]{globe temperature\acroextra{, $^{\circ}$C}}
+    \acro{rh}[$RH$]{relative humidity\acroextra{, \%}}
+    \acro{v}[$V$]{average air speed\acroextra{, m/s}}
+    \acro{t-r}[$\overline{t_{r}}$]{mean radiant temperature\acroextra{, $^{\circ}$C}}
+    \acro{clo}[$I_{cl}$]{total clothing insulation\acroextra{, clo}}
+    \acro{i-cl}[$i_{cl}$]{permeation efficiency of water vapor through the clothing layer}
+    \acro{met}[$M$]{rate of metabolic heat production\acroextra{, W/m\textsuperscript{2}}}
+    \acro{work}[$W$]{rate of mechanical work accomplished\acroextra{, W/m\textsuperscript{2}}}
+    \acro{t-sk}[$t_{sk}$]{skin mean temperature\acroextra{, $^{\circ}$C}}
+    \acro{t-sk-n}[$t_{sk,n}$]{neutral skin mean temperature\acroextra{, $^{\circ}$C}}
+    \acro{t-cr}[$t_{cr}$]{core mean temperature\acroextra{, $^{\circ}$C}}
+    \acro{t-re}[$t_{re}$]{rectal temperature\acroextra{, $^{\circ}$C}}
+    \acro{t-cr-n}[$t_{cr,n}$]{neutral core mean temperature\acroextra{, $^{\circ}$C}}
+    \acro{r-cl}[$R_{cl}$]{thermal resistance of clothing\acroextra{, m\textsuperscript{2}K/W}}
+    \acro{r-e-cl}[$R_{e,cl}$]{evaporative heat transfer resistance of clothing layer\acroextra{, m\textsuperscript{2}kPa/W}}
+    \acro{f-cl}[$f_{cl}$]{clothing area factor $A_{cl}/A_{body}$\acroextra{, m\textsuperscript{2}K/W}}
+    \acro{h}[$h$]{sum of convective $h_{c}$ and radiative $h_{r}$ heat transfer coefficients\acroextra{, W/(m\textsuperscript{2}K)}}
+    \acro{h-r}[$h_{r}$]{linear radiative heat transfer coefficient\acroextra{, W/(m\textsuperscript{2}K)}}
+    \acro{h-c}[$h_{c}$]{convective heat transfer coefficient\acroextra{, W/(m\textsuperscript{2}K)}}
+    \acro{h-e}[$h_{e}$]{evaporative heat transfer coefficient\acroextra{, W/(m\textsuperscript{2}kPa)}}
+    \acro{a}[$\alpha$]{fraction of the total body mass considered
+to be thermally in the skin compartment}
+
+    \acro{cl-a}[$A_{cl}$]{clothing surface area\acroextra{, m\textsuperscript{2}}}
+
+    \acro{e}[$\varepsilon$]{average emissivity of clothing or body surface}
+    \acro{sigma}[$\sigma$]{Stefan-Boltzmann constant\acroextra{, 5.67 x 10\textsuperscript{-8} W/(m\textsuperscript{2}K\textsuperscript{2})}}
+
+    \acro{a-r}[$A_{r}$]{effective  radiation  area  of  the  body\acroextra{, m\textsuperscript{2}}}
+    \acro{body-a}[$A_{body}$]{body surface area\acroextra{, m\textsuperscript{2}}}
+    \acro{body-w}[$mass$]{body mass\acroextra{, kg}}
+    \acro{body-h}[$height$]{body height\acroextra{, m}}
+
+    \acro{pmv}[PMV]{Predicted Mean Vote}
+    \acro{ppd}[PPD]{Predicted Percentage of Dissatisfied\acroextra{, \%}}
+    \acro{set}[SET]{Standard Effective Temperature\acroextra{, $^{\circ}$C}}
+    \acro{ce}[CE]{Cooling Effect\acroextra{, $^{\circ}$C}}
+    \acro{phs}[PHS]{Predicted Heat Strain}
+
+    \acro{BMS}[BMS]{Building Management System}
+    \acro{HVAC}[HVAC]{Heating, Ventilation, and Air Conditioning}
+    \acro{VAV}[VAV]{Variable Air Volume}
+    \acro{AHU}[AHU]{Air Handling Unit}
+
+    \acro{ema}[EMA]{Ecological Momentary Assessment}
+    \acro{sdk}[SDK]{Software Development Kit}
+    \acro{api}[API]{Application Programming Interface}
+
+    \acro{s-cr}[$S_{cr}$]{rate of heat storage in the core compartment\acroextra{, W/m\textsuperscript{2}}}
+    \acro{s-sk}[$S_{sk}$]{rate of heat storage in the skin compartment\acroextra{, W/m\textsuperscript{2}}}
+    \acro{s}[$S$]{rate of heat storage in the human body\acroextra{, W/m\textsuperscript{2}}}
+    \acro{e-res}[$E_{res}$]{rate of evaporative heat loss from respiration\acroextra{, W/m\textsuperscript{2}}}
+    \acro{e-dif}[$E_{dif}$]{rate of evaporative heat loss from moisture diffused through the skin\acroextra{, W/m\textsuperscript{2}}}
+    \acro{e-rsw}[$E_{rsw}$]{rate of evaporative heat loss from sweat evaporation\acroextra{, W/m\textsuperscript{2}}}
+    \acro{e-sk}[$E_{sk}$]{total rate of evaporative heat loss from skin\acroextra{, W/m\textsuperscript{2}}}
+    \acro{e-max}[$E_{max}$]{maximum rate of evaporative heat loss from skin\acroextra{, W/m\textsuperscript{2}}}
+    \acro{c-res}[$C_{res}$]{rate of convective heat loss from respiration\acroextra{, W/m\textsuperscript{2}}}
+    \acro{c-r}[$C + R$]{sensible heat loss from skin\acroextra{, W/m\textsuperscript{2}}}
+    \acro{q-res}[$q_{res}$]{total rate of heat loss through respiration\acroextra{, W/m\textsuperscript{2}}}
+    \acro{q-sk}[$q_{sk}$]{total rate of heat loss from skin\acroextra{, W/m\textsuperscript{2}}}
+    \acro{w}[$w$]{skin wettedness}
+    \acro{w-max}[$w_{max}$]{skin wettedness practical upper limit}
+    \acro{m-sweat}[$m_{rsw}$]{rate at which regulatory sweat is generated\acroextra{, mL/h\textsuperscript{2}}}
+    \acro{m-bl}[$m_{bl}$]{skin blood flow\acroextra{, L/(hm\textsuperscript{2})}}
+    \acro{c-sw}[$c_{sw}$]{driving coefficient for regulatory sweating\acroextra{, g/(hKm\textsuperscript{2})}}
+
+    \acro{p-sk}[$p_{sk,s}$]{water vapor pressure at skin\acroextra{, kPa}}
+    \acro{p-a}[$p_{a}$]{water vapor pressure in ambient air\acroextra{, kPa}}
+
+    \acro{wmo}[WMO]{World Meteorological Organization}
+    \acro{who}[WHO]{World Health Organization}
+    \acro{cdc}[CDC]{Centers for Disease Control and Prevention}
+    \acro{noaa}[NOAA]{National Oceanic and Atmospheric Administration}
+    \acro{epa}[EPA]{United States Environmental Protection Agency}
+    \acro{iea}[IEA]{International Energy Agency}
+    \acro{un}[UN]{United Nations}
+
+\end{acronym}
+\renewcommand{\baselinestretch}{1}\normalsize

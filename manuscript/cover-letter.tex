@@ -1,0 +1,83 @@
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+% \usepackage[spanish,es-lcroman]{babel}
+
+% moderncv themes
+\moderncvstyle{classic}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{black}                              % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+% \renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+
+\renewcommand\labelitemi{•}
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\usepackage{enumitem}
+\setlist[enumerate]{align=left}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% todo change text below
+% personal data
+\name{}{Dr. Federico Tartarini}
+% \title{Postdoctoral scholar}                               % optional, remove / comment the line if not wanted
+\address{Postdoctoral scholar at SinBerBEST, Berkeley Education Alliance for Research in Singapore}{1 Create Way, \#11-01, CREATE Tower}{Singapore 138602} % optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+% \phone[mobile]{000-000-000-000}                   % optional, remove / comment the line if not wanted
+% \phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
+% \phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+% todo change text below
+\email{federicotartarini@berkeley.edu}                               % optional, remove / comment the line if not wanted
+%\homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+% \extrainfo{Berkeley Education Alliance for Research in Singapore}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%-----       letter       ---------------------------------------------------------
+% recipient data
+% todo change text below
+\recipient{Cover letter to the Editor}{of the journal of Building and Environment}
+\date{\today}
+% todo change text below
+\opening{Dear Professor Nesreen K. Ghaddar,}
+
+\makelettertitle
+
+% todo change text below
+We submit an original research article entitled ``'' for consideration to be published in XXXXXXXXXXXX.
+The authors are XXXXXXXXXXXXXXXXXXX.
+We are experts in XXXXXXXXXXXXXXXXXXX.
+We confirm that this manuscript it is not currently under consideration for publication in any other journal.
+
+% todo summarized key findings
+
+% todo summarize methodology
+
+% todo summarize conclusions
+
+% todo summarize impact
+
+Please do not hesitate to contact me if I can be of any further assistance.
+Thank you in advance for considering our research for publication.
+
+\bigskip
+
+% todo change text below
+Dr. Federico Tartarini, PhD\\
+Postdoctoral scholar at SinBerBEST, BEARS
+
+\end{document}
