@@ -35,6 +35,8 @@ def save_var_latex(key, value):
 
 df = sns.load_dataset("penguins")
 
+# df = df[df.island == "Torgersen"]
+
 # f, ax = plt.subplots(constrained_layout=True, figsize=(7, 3))
 sns.kdeplot(data=df, x="bill_length_mm", y="body_mass_g", hue="sex")
 plt.savefig(os.path.join(fig_dir, "penguins_distribution.png"), dpi=300)
