@@ -1,93 +1,57 @@
 import matplotlib.pyplot as plt
-import pandas as pd
-from influxdb import InfluxDBClient
 import seaborn as sns
-import matplotlib
+
 import os
 
-
-# from IPython.display import display, Markdown
-# display(Markdown("Hello World!"))
-# print("Hello World!")
+sns.set_theme(style="white")
 
 
-def influx_to_df(query='SELECT * FROM "coziePublic"."autogen"."fitbit" where userid=\'test\''):
-    import secret
+fig_dir = os.path.join(os.getcwd(), "manuscript", "src", "figures")
+tbl_dir = os.path.join(os.getcwd(), "manuscript", "src", "tables")
+data_dir = os.path.join(os.getcwd(), "manuscript", "src")
 
-    influx_cl = InfluxDBClient(host=secret.influx_db_host, port=8086,
-                               username="heroku", password=secret.influx_db_psw,
-                               database="spaces", ssl=True, verify_ssl=True)
+
+def save_var_latex(key, value):
+    import csv
+
+    dict_var = {}
+
+    file_path = os.path.join(data_dir, "mydata.dat")
 
     try:
-        result = influx_cl.query(query)
-        df = pd.DataFrame(result[result.keys()[0]])
+        with open(file_path, newline="") as file:
+            reader = csv.reader(file)
+            for row in reader:
+                dict_var[row[0]] = row[1]
+    except FileNotFoundError:
+        pass
 
-        df.index = pd.to_datetime(df.time)
-        df.index = df.index.tz_convert(timeZone)
-        return df.drop(coKlumns=['time'])
-    except IndexError:
-        return pd.DataFrame()
+    dict_var[key] = value
 
-# variables
-experiment_id = 'dorn'
-timeZone = 'Asia/Singapore'
-start_date = pd.Timestamp(2020, 4, 10).value
-fig_dir = os.path.join(os.getcwd(), 'manuscript', 'src', 'figures')
-tbl_dir = os.path.join(os.getcwd(), 'manuscript', 'src', 'tables')
-data_dir = os.path.join(os.getcwd(), 'data')
-cozie_file = os.path.join(data_dir, 'df_cozie.csv')
+    with open(file_path, "w") as f:
+        for key in dict_var.keys():
+            f.write(f"{key},{dict_var[key]}\n")
 
-try:
-    df_cozie = influx_to_df(f'SELECT thermal, met, userid, experimentid, responseSpeed '
-                            f'FROM "coziePublic"."autogen"."fitbit" '
-                            f'where time > {start_date} '
-                            f'and "experimentid" = \'{experiment_id}\' '
-                            f'and "userid" != \'{"dorn16"}\''
-                            f'and "userid" != \'{"dorn18"}\''
-                            f'and "userid" != \'{"dorn17"}\'')
-    df_cozie.to_csv(cozie_file, index=False)
-except:
-    df_cozie = pd.read_csv(cozie_file)
 
-df_cozie.head()
-df_cozie.index.max()
+df = sns.load_dataset("penguins")
 
-df_group_id = df_cozie.groupby(['userid'])['thermal'].count().reset_index()
-
-fig = plt.figure(figsize=(7.2, 5))
-sns.barplot(y="userid", x="thermal", data=df_group_id)
+# f, ax = plt.subplots(constrained_layout=True, figsize=(7, 3))
+sns.kdeplot(data=df, x="bill_length_mm", y="body_mass_g", hue="sex")
+plt.savefig(os.path.join(fig_dir, "penguins_distribution.png"), dpi=300)
 plt.show()
 
-# matplotlib.use("pgf")
-# matplotlib.rcParams.update({
-#     "pgf.texsystem": "pdflatex",
-#     'font.family': 'serif',
-#     'text.usetex': True,
-#     'pgf.rcfonts': False,
-# })
+df.groupby(["sex"])["body_mass_g"].describe()[["count", "mean", "max", "min"]].round(
+    1
+).to_latex(
+    os.path.join(tbl_dir, "penguins_sex.tex"),
+    caption="Differences in penguins",
+    label="tab:features",
+    escape=False,
+    column_format="lcccccccccc",
+    index=True,
+)
 
-fig = plt.figure(figsize=(2, 2))
-sns.barplot(y="userid", x="thermal", data=df_group_id)
-plt.tight_layout()
-plt.savefig(os.path.join(fig_dir, 'bar-plot.pgf'))
-
-fig = plt.figure(figsize=(3, 3))
-sns.barplot(y="userid", x="thermal", data=df_group_id)
-plt.tight_layout()
-# plt.savefig(os.path.join(fig_dir, 'beamer-bar-plot.pgf'))
-plt.savefig(os.path.join(fig_dir, 'bar-plot.png'), dpi=300)
-
-fig = plt.figure(figsize=(3, 3))
-sns.barplot(y="userid", x="thermal", data=df_group_id)
-plt.tight_layout()
-plt.savefig(os.path.join(fig_dir, 'beamer-bar-plot.pgf'))
-# plt.savefig(os.path.join(fig_dir, 'bar-plot.png'), dpi=300)
-
-df_cozie.groupby(['userid'])['responseSpeed'].describe()
-
-# df_describe = df_cozie.groupby(['userid'])['responseSpeed'].describe()
-df_describe = df_cozie.groupby(['userid'])['responseSpeed'].describe().round(1).reset_index()
-# df_describe['mean'] = [str(x) if x > 400 else str(x) + '*' for x in df_describe['mean']]
-df_describe = df_describe[df_describe.columns[:4]]
-with open(os.path.join(tbl_dir, 'tbl_resp_speed.tex'), 'w') as tf:
-    tf.write(df_describe.to_latex(index=False))
+save_var_latex(
+    "n_penguins",
+    df.shape[0],
+)
