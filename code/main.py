@@ -35,15 +35,20 @@ def save_var_latex(key, value):
 
 df = sns.load_dataset("penguins")
 
-# df = df[df.island == "Torgersen"]
+df = df[df.island == "Torgersen"]
 
-# f, ax = plt.subplots(constrained_layout=True, figsize=(7, 3))
+save_var_latex(
+    "n_penguins",
+    df.shape[0],
+)
+
+f, ax = plt.subplots(constrained_layout=True, figsize=(3.5, 3))
 sns.kdeplot(data=df, x="bill_length_mm", y="body_mass_g", hue="sex")
 plt.savefig(os.path.join(fig_dir, "penguins_distribution.png"), dpi=300)
 plt.show()
 
-df.groupby(["sex"])["body_mass_g"].describe()[["count", "mean", "max", "min"]].round(
-    1
+df.groupby(["sex"])["body_mass_g"].describe()[["count", "max", "min"]].round(
+    2
 ).to_latex(
     os.path.join(tbl_dir, "penguins_sex.tex"),
     caption="Differences in penguins",
@@ -51,9 +56,4 @@ df.groupby(["sex"])["body_mass_g"].describe()[["count", "mean", "max", "min"]].r
     escape=False,
     column_format="lcccccccccc",
     index=True,
-)
-
-save_var_latex(
-    "n_penguins",
-    df.shape[0],
 )

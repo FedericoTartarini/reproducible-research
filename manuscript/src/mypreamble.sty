@@ -33,6 +33,16 @@
   pdfborderstyle={/S/U/W 1}% border style will be underline of width 1pt
 }
 
+
+
+% package to open file containing variables
+\usepackage{datatool, filecontents}
+\DTLsetseparator{,}% Set the separator between the columns.
+% import data
+\DTLloaddb[noheader, keys={thekey,thevalue}]{mydata}{./mydata.dat}
+% Loads mydata.dat with column headers 'thekey' and 'thevalue'
+\newcommand{\var}[1]{\DTLfetch{mydata}{thekey}{#1}{thevalue}}
+
 \usepackage{siunitx}
 
 %%%%%%%%%%%%%%%%%%%%%%%
