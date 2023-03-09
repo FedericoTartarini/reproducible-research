@@ -1,69 +1,94 @@
 \ProvidesPackage{mypreamble}
 
-\usepackage{lineno,hyperref}
+% create diagram
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows,calc,positioning}
 
-\hypersetup{%
-  colorlinks=false,% hyperlinks will be black
-  linkbordercolor=[rgb]{0.6,0.6,0.6},% hyperlink borders will be red
-  pdfborderstyle={/S/U/W 1}% border style will be underline of width 1pt
-}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=gray!10]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=gray!10]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=gray!10]
+\tikzstyle{process_large} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=gray!10, text width=6cm]
+\tikzstyle{decision} = [diamond, aspect=3.5, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=gray!10]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\usepackage{lineno}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[range-phrase=--, range-units=single]{siunitx}
+
+%\hypersetup{%
+%  colorlinks=false,% hyperlinks will be black
+%  linkbordercolor=[rgb]{1,1,1},% hyperlink borders will be red
+%  pdfborderstyle={/S/U/W 1}% border style will be underline of width 1pt
+%}
 
 \urlstyle{same}
 
 \usepackage{import}
 \modulolinenumbers[5]
 
-\journal{Journal of \LaTeX\ Templates}
+%\journal{Journal of \LaTeX\ Templates}
 
-%\User defined packages
-% highlight
-\usepackage{color,soul}
-\DeclareRobustCommand{\hlc}[1]{{\sethlcolor{lightgray}\hl{#1}}}
-% todonotes
-\usepackage{todonotes}
-% degree symbol
-\usepackage{gensymb}
-% tables
-\usepackage{caption}
-\usepackage{csvsimple}
-\usepackage{booktabs, tabularx, wrapfig}
-\usepackage{array, ltablex, multirow}
-\usepackage{placeins}
-\usepackage{graphicx}
-\usepackage{subcaption}
+% package to open file containing variables
+\usepackage{datatool, filecontents}
+\DTLsetseparator{,}% Set the separator between the columns.
+% import data
+\DTLloaddb[noheader, keys={thekey,thevalue}]{mydata}{./mydata.dat}
+% Loads mydata.dat with column headers 'thekey' and 'thevalue'
+\newcommand{\var}[1]{\DTLfetch{mydata}{thekey}{#1}{thevalue}}
+
+%% add code
+%\usepackage{listings}
+%\renewcommand\lstlistingname{Source Code}
+%\renewcommand\lstlistlistingname{Source Code}
+%\usepackage{xcolor}
+%\definecolor{codegreen}{rgb}{0,0.6,0}
+%\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+%\definecolor{codeorange}{rgb}{1,0.49,0}
+%\definecolor{backcolour}{rgb}{0.95,0.95,0.96}
+%\lstdefinestyle{mystyle}{
+%    backgroundcolor=\color{backcolour},
+%    commentstyle=\color{codegray},
+%    keywordstyle=\color{codeorange},
+%    numberstyle=\tiny\color{codegray},
+%    stringstyle=\color{codegreen},
+%    basicstyle=\ttfamily\footnotesize,
+%    breakatwhitespace=false,
+%    breaklines=true,
+%    captionpos=b,
+%    keepspaces=true,
+%    numbers=left,
+%    numbersep=5pt,
+%    showspaces=false,
+%    showstringspaces=false,
+%    showtabs=false,
+%    tabsize=2,
+%    xleftmargin=10pt,
+%}
+%
+%\emergencystretch 5em%
+%
+%\lstset{style=mystyle, basicstyle=\fontsize{6}{6}\selectfont\ttfamily}
+
+% for math equations
+\usepackage{amsmath}
+
+%% tables
+%\usepackage{caption}
+%\usepackage{csvsimple}
+%\usepackage{booktabs, tabularx, wrapfig}
+%\usepackage{array, ltablex, multirow}
+%\usepackage{placeins}
+%\usepackage{graphicx}
+%\usepackage{subcaption}
 
 \usepackage[nonumberlist,nogroupskip]{glossaries}
 
 \setglossarystyle{super}
 
-%%%%%%%%%%%%%%%%%%%%%%%
-%% Elsevier bibliography styles
-%%%%%%%%%%%%%%%%%%%%%%%
-%% To change the style, put a % in front of the second line of the current style and
-%% remove the % from the second line of the style you would like to use.
+\usepackage[printonlyused]{acronym}
+
+\bibliographystyle{elsarticle-num-names}
 %%%%%%%%%%%%%%%%%%%%%%%
 
-%% Numbered
-%\bibliographystyle{model1-num-names}
-
-%% Numbered without titles
-%\bibliographystyle{model1a-num-names}
-
-%% Harvard
-%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
-
-%% Vancouver numbered
-%\usepackage{numcompress}\bibliographystyle{model3-num-names}
-
-%% Vancouver name/year
-%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
-
-%% APA style
-%\bibliographystyle{model5-names}\biboptions{authoryear}
-
-%% AMA style
-%\usepackage{numcompress}\bibliographystyle{model6-num-names}
-
-%% `Elsevier LaTeX' style
-\bibliographystyle{elsarticle-num}
-%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\mycite[1]{\citeauthor{#1}~(\citeyear{#1})}
