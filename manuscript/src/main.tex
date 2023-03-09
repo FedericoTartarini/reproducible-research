@@ -6,14 +6,19 @@
 %\documentclass[final,5p,times,twocolumn]{elsarticle}
 
 \usepackage{mypreamble}
+\usepackage{graphicx}
 
-\input{myacronyms.tex}
+\input{myglossary.tex}
 
 \begin{document}
 
     \input{sections/titleAbstract}
 
+    \input{myacronyms.tex}
+
     \linenumbers
+
+    \acresetall
 
     \input{sections/introduction}
 
@@ -23,6 +28,6 @@
 
     \input{sections/elsevierGuide}
 
-\bibliography{mybibfile}
+    \bibliography{mybibfile}
 
 \end{document}
