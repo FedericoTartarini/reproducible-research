@@ -123,7 +123,7 @@ You may want to take advantage of the power of IDEs. Well as you all know my pre
 * [visual Studio (VS) code](https://code.visualstudio.com)
 * [RStudio](https://rstudio.com)
 
-> Always think about the future, if you think you may start doing a bit of Web development, App development (Android, Apple) or Software. The best options are PyCharm of VS Code.
+> Always think about the future, if you think you may start doing a bit of Web development, App development (Android, Apple) or Software. The best options are PyCharm or VS Code.
 
 I personally think you should not use Jupiter Notebook, but feel free to use it if you like it. 
 
