@@ -1,11 +1,12 @@
 %! Author = sbbfti
 %! Date = 10/06/2020
 
-\documentclass[review, 3p]{elsarticle}
+\documentclass[review, 1p]{elsarticle}
 %\documentclass[final]{elsarticle}
 %\documentclass[final,5p,times,twocolumn]{elsarticle}
 
 \usepackage{mypreamble}
+\usepackage{setspace}
 
 \input{myglossary.tex}
 
@@ -15,7 +16,11 @@
 
     \input{myacronyms.tex}
 
+    \doublespacing
+
     \linenumbers
+
+    \acresetall
 
     \input{sections/introduction}
 
@@ -23,10 +28,14 @@
 
     \input{sections/results}
 
-    \input{sections/discussion}
-
     \input{sections/conclusions}
 
+    \clearpage
+
     \bibliography{mybibfile}
+
+    \clearpage
+
+    \input{sections/appendix}
 
 \end{document}

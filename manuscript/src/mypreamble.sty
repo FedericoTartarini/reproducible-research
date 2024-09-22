@@ -1,12 +1,7 @@
 \ProvidesPackage{mypreamble}
 
-\usepackage{lineno,hyperref}
-
-\hypersetup{%
-  colorlinks=false,% hyperlinks will be black
-  linkbordercolor=[rgb]{0.6,0.6,0.6},% hyperlink borders will be red
-  pdfborderstyle={/S/U/W 1}% border style will be underline of width 1pt
-}
+\usepackage{lineno}
+\usepackage[hidelinks]{hyperref}
 
 \urlstyle{same}
 
@@ -14,6 +9,8 @@
 \modulolinenumbers[5]
 
 %\journal{Journal of \LaTeX\ Templates}
+
+\usepackage[range-phrase=--, range-units=single, per-mode=symbol, range-phrase = ~--~]{siunitx}
 
 % package to open file containing variables
 \usepackage{datatool, filecontents}
