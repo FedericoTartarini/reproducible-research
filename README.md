@@ -2,16 +2,16 @@
 
 This repository gives you an example on how you can structure your research project, from the data analysis all the way to the final version of the manuscript or a presentation.
 
-Find out more on how to get started [here](https://youtu.be/iueBeWkLq60).
-
-The overarching aim is:
+## Objectives
 * to make our research more reproducible so other researchers can re-use our code, data;
-* to speed up review process (e.g., avoiding that we use different tools which are not 100% compatible, Google Form, Word, etc)
+* to speed up review process (e.g., avoiding that we use different tools which are not 100% compatible, Google Form, Word, etc.)
 * to minimise errors (e.g., copying and pasting values in Word tables and PowerPoint)
 
-For this purpose I have tried to leverage the best tools that there are currently out there (at least in my opinion) and I have put together this repository which could be used as template/starting point to ensure that we follow a more structured approach in research. It leverages the power of Python, R and Latex, to streamline the data analysis and publication process.  
+For this purpose I have tried to leverage the best tools that there are currently out there (at least in my opinion) and I have put together this repository which could be used as template/starting point to ensure that we follow a more structured approach in research. 
+It leverages the power of Python, R and Latex, to streamline the data analysis and publication process.  
 
-This project is still in Beta version, hence it is far from being complete and the file structure may soon change. Please feel free to contribute.
+This project is still in Beta version, hence it is far from being complete and the file structure may soon change. 
+Please feel free to contribute.
 
 ## Table of content 
 
@@ -22,7 +22,6 @@ This project is still in Beta version, hence it is far from being complete and t
         -   [Manuscript](#manuscript)
             -   [Adding new section](#adding-a-new-section)
             -   [Figures, Tables, Equations](#figures-tables-or-math-equations)
-            -   [Changing Template](#changing-template)
         -   [Additional resources](#additional-resources)
 -   [Prerequisites](#prerequisites)
     -   [Data Analysis Softwares](#data-analysis-software)
@@ -38,50 +37,55 @@ This project is still in Beta version, hence it is far from being complete and t
 
 The directory is divided in sub-folders. Each of which contains the relative source code. Just clone this repository on your computer or Fork it on GitHub
 
-### Source Data
+### Data
 
-The objective of this folder is not to replace the database, but instead to share only some of the database data with other researchers. Data should only contain the .csv files that you want to share publicly. 
+The objective of the `data` folder is not to replace the database, but instead to share only some of the database data with other researchers. 
+Data should only contain the .csv files that you want to share publicly. 
 
->It **SHOULD NOT** containc identifiable data. 
+>It **SHOULD NOT** contain identifiable data. 
 
 ### Data Analysis
 
-Please save your source code in the `code` folder. Currently you can find an example of a Python, R and Jupiter notebook in this folder.
+Please save your source code in the `code` folder. 
+Currently, you can find an example of a Python, R and Jupiter notebook in this folder.
 
 > Figures and Tables to be used in the manuscript should be saved in the  respective folder `manuscript/src/figures` or `manuscript/src/tables`
 
-Once you have finalized your research, your data should then be saved in [Dryad](https://datadryad.org/stash/): Dryad is an open-source, research data curation and publication platform. Datasets published in Dryad receive a citation and can be versioned at any time. You can [upload your data on Dryad](https://datadryad.org/stash/submission_process#upload-methods) by copy and pasting in their system the GitHub URL.
+Once you have finalized your research, your data should then be saved in [Dryad](https://datadryad.org/stash/): Dryad is an open-source, research data curation and publication platform. Datasets published in Dryad receive a citation and can be versioned at any time. 
+You can [upload your data on Dryad](https://datadryad.org/stash/submission_process#upload-methods) by copy and pasting in their system the GitHub URL.
 
-If your code needs to connect to a database or a server please make sure the `username` and `password` are not saved in plain text in your code. I keep my password saved in a file called `secret.py` and added this file to [.gitignore](https://github.com/FedericoTartarini/reproducible-research/blob/master/.gitignore) so this file is not synced to the GitHub repos. And then import this file at the beginning of my `main.py` file.
+If your code needs to connect to a database or a server please make sure the `username` and `password` are not saved in plain text in your code. 
+I keep my password saved in a file called `secret.py` and added this file to [.gitignore](https://github.com/FedericoTartarini/reproducible-research/blob/master/.gitignore) so this file is not synced to the GitHub repos. And then import this file at the beginning of my `main.py` file.
 
-> Make sure you save the data you imported from the database in the [Data](#source-data) folder so other researchers can import the raw data if they want to reproduce your results. Alteratively write a script which pulls the data from Dryad.
+> Make sure you save the data you imported from the database in the [Data](#source-data) folder so other researchers can import the raw data if they want to reproduce your results. 
+> Alternatively write a script which pulls the data from Dryad.
 
 ### Manuscript and Presentation
 
-The manuscript contains all the Latex files needed to generate your manuscript and your presentation. The main source files are located in the `manuscript/src`.
-
-* [main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex) is your manuscript source file. The final PDF can be found [here](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/presentation_out/presentation.pdf).
-* [Presentation.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/presentation.tex) contains the code to generate your presentation. The final PDF can be found [here](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/out/main.pdf).
+The `manuscript` folder contains all the Latex files needed to generate your manuscript and your presentation. The main source files are located in the `manuscript/src`.
+In the master branch this folder is empty.
+Please checkout either the:
+* elsevier branch if you want to use the Elsevier template
+* springer branch if you want to use the Springer template
 
 #### Manuscript 
 
-[main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex) is the source file that your Latex compiler will use to generate the paper. However, in order to keep the code cleaner, the main sections of the paper are all located in the [sections](https://github.com/FedericoTartarini/reproducible-research/tree/master/manuscript/src/sections). In this way you will experience less merging issues when two or more people are working on the same manuscript.
+[main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex) is the source file that your Latex compiler will use to generate the paper. 
+However, in order to keep the code cleaner, the main sections of the paper are all located in the [sections](https://github.com/FedericoTartarini/reproducible-research/tree/master/manuscript/src/sections). 
+In this way you will experience less merging issues when two or more people are working on the same manuscript.
 
-Just edit the text in the relative Latex file (e.g., introduction, methodology, etc.) and you should be ready to go. No need to change any other file.
+Just edit the text in the relative Latex file (e.g., introduction, methodology, etc.) and you should be ready to go. 
+No need to change any other file.
 
 ##### Adding a new section
 
-Just copy a section file (e.g., [introduction.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/sections/introduction.tex)) paste it in the same directory. Rename the pasted file (e.g. discussion.tex) and add this file to [main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex).
+Just copy a section file (e.g., `introduction.tex`) paste it in the same directory. 
+Rename the pasted file (e.g. `discussion.tex`) and add this file to `main.tex`.
 
 ##### Figures, Tables or Math equations
 
-See the boilerplate code in [results.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/sections/results.tex).
+See the boilerplate code in `results.tex`.
 
-##### Changing template
-
-For your convenience I have already included the Elsevier Latex template at the beginning of the [main.tex](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/main.tex). Feel free to change that.
-
-If you choose to use the Elsevier template you can change the bibliography style in the [mypreamble.sty](https://github.com/FedericoTartarini/reproducible-research/blob/master/manuscript/src/mypreamble.sty) file.
 
 #### Additional Resources
 
